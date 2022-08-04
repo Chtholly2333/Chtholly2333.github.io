@@ -4,8 +4,17 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="hexo搭建博客, Chtholly">
-    <meta name="description" content="">
+    <meta name="keywords" content="-hexo -blog">
+    <meta name="description" content="1前期准备1.1下载并安装node
+官网下载：https://nodejs.org/en/
+
+安装后验证：node -v
+
+
+1.2下载并安装git
+官网下载：https://git-scm.com/download/win
+
+安装后验证：">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -365,9 +374,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/hexo/">
+                                <span class="chip bg-color">-hexo</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -388,7 +401,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    905
                 </div>
                 
 
@@ -408,7 +421,98 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h2 id="1前期准备"><a href="#1前期准备" class="headerlink" title="1前期准备"></a>1前期准备</h2><h3 id="1-1下载并安装node"><a href="#1-1下载并安装node" class="headerlink" title="1.1下载并安装node"></a>1.1下载并安装node</h3><ul>
+<li><p>官网下载：<a target="_blank" rel="noopener" href="https://nodejs.org/en/">https://nodejs.org/en/</a></p>
+</li>
+<li><p>安装后验证：node -v</p>
+</li>
+</ul>
+<h3 id="1-2下载并安装git"><a href="#1-2下载并安装git" class="headerlink" title="1.2下载并安装git"></a>1.2下载并安装git</h3><ul>
+<li><p>官网下载：<a target="_blank" rel="noopener" href="https://git-scm.com/download/win">https://git-scm.com/download/win</a></p>
+</li>
+<li><p>安装后验证：git -v</p>
+</li>
+</ul>
+<h3 id="1-3命令行安装cnpm"><a href="#1-3命令行安装cnpm" class="headerlink" title="1.3命令行安装cnpm"></a>1.3命令行安装cnpm</h3><ul>
+<li>命令：<strong>npm install -g cnpm –registry&#x3D;&#x3D;<a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a></strong></li>
+<li>安装后验证：cnpm -v</li>
+</ul>
+<h3 id="1-4命令行安装hexo"><a href="#1-4命令行安装hexo" class="headerlink" title="1.4命令行安装hexo"></a>1.4命令行安装hexo</h3><ul>
+<li><p>命令：cnpm install -g hexo-cli</p>
+</li>
+<li><p>安装后验证：hexo -v</p>
+</li>
+</ul>
+<h2 id="2配置github"><a href="#2配置github" class="headerlink" title="2配置github"></a>2配置github</h2><h3 id="2-1在github上创建仓库"><a href="#2-1在github上创建仓库" class="headerlink" title="2.1在github上创建仓库"></a>2.1在github上创建仓库</h3><p>创建：</p>
+<ul>
+<li>新建一个名为你的用户名.github.io的仓库</li>
+<li>比如说，你的github用户名为chtholly，那么就新建chtholly.github.io的仓库，将来你的网站访问地址就是 <a target="_blank" rel="noopener" href="http://chtholly.github.io/">http://chtholly.github.io</a> ，因此，一个github账户最多创建一个这样直接使用域名访问的仓库。</li>
+</ul>
+<p>注意：</p>
+<ul>
+<li>注册的邮箱一定要验证，否则不会成功</li>
+</ul>
+<p><img src="/2022/08/04/hexo-da-jian-bo-ke/%E5%88%9B%E5%BB%BAgithub%E4%BB%93%E5%BA%93-16596186964872.png"></p>
+<h2 id="3配置SSH免密登录"><a href="#3配置SSH免密登录" class="headerlink" title="3配置SSH免密登录"></a>3配置SSH免密登录</h2><p>提交代码需要拥有你的github权限，直接使用用户名和密码不太安全，使用ssh key解决本地和服务器的连接问题。</p>
+<ol>
+<li><p>首先打开电脑文件夹，找到C:\Users\你的用户名.ssh文件夹并删除</p>
+</li>
+<li><p>在C:\Users\你的用户名 文件夹下右键打开Git Bash Here，输入</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ssh-keygen -t rsa -C github邮箱地址<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>输入后一直回车确认即可</p>
+</li>
+<li><p>最后会生成一个新的文件夹.ssh文件夹，打开这个文件夹，找到id_rsa.pub文件，记事本打开并复制里面的内容</p>
+</li>
+<li><p>打开你的github主页，进入个人设置-&gt;SSH and GPG keys-&gt;New SSH key，把复制的内容粘贴进去，title能够用于区分即可。</p>
+</li>
+</ol>
+<p>![](SSH key-16596186837501.png)</p>
+<ol start="5">
+<li>检测是否设置成功：<br>输入<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">ssh</span> -T git@github.com <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+如果提示Are you sure you want to continue connecting (yes&#x2F;no)?，输入yes，然后会看到：</li>
+</ol>
+<p>Hi liuxianan! You’ve successfully authenticated, but GitHub does not provide shell access.</p>
+<p>看到这个信息说明SSH已配置成功</p>
+<ol start="6">
+<li>最后还需配置：<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">git</span> config –global user.name <span class="token string">"XXX"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+引号内为你的github用户名<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">git</span> config –global user.email <span class="token string">"xxx@xx.com"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+引号内为github注册的邮箱</li>
+</ol>
+<h2 id="4使用hexo搭建博客"><a href="#4使用hexo搭建博客" class="headerlink" title="4使用hexo搭建博客"></a>4使用hexo搭建博客</h2><h3 id="4-1初始化"><a href="#4-1初始化" class="headerlink" title="4.1初始化"></a>4.1初始化</h3><ol>
+<li><p>在电脑的某个地方新建一个文件夹作为存放代码的地方，例如D:\hexo（名字位置均可随意，能够记住即可）</p>
+</li>
+<li><p>在该文件夹内右键打开Git Bash Here，输入</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo init<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ol>
+<ul>
+<li>hexo会自动下载一些文件到该目录</li>
+</ul>
+<ol start="3">
+<li><p>执行以下命令，hexo会在public文件夹生成相关html文件，这些文件将来都是要提交到github上去的</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo g <span class="token comment">#生成</span>
+$ hexo s <span class="token comment">#启动，本地预览</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+<li><p>hexo s是开启本地预览服务，打开浏览器访问 <a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000</a> 即可看到内容，如果不能成功打开，可能是因为4000端口被占用，可以在命令窗口中通过 netstat -aon | find &#x2F;i “listening” 来监听端口，使用    taskkill &#x2F;PID  对应的PID      来结束对应进程</p>
+</li>
+</ol>
+<h3 id="4-2将博客部署到github个人主页上"><a href="#4-2将博客部署到github个人主页上" class="headerlink" title="4.2将博客部署到github个人主页上"></a>4.2将博客部署到github个人主页上</h3><ol>
+<li>在D:\hexo(你创建的目录)目录下安装hexo-deployer-git插件</li>
+</ol>
+<ul>
+<li>安装命令：npm install hexo-deployer-git –save</li>
+<li>注意：必须安装，否则执行hexo d会报错</li>
+</ul>
+<ol start="2">
+<li>编辑D:\hexo目录下的_config.yml文件，在文末添加：<br> type: git<br> repository: <a href="mailto:&#103;&#105;&#116;&#64;&#103;&#105;&#x74;&#104;&#117;&#x62;&#x2e;&#99;&#111;&#x6d;">&#103;&#105;&#116;&#64;&#103;&#105;&#x74;&#104;&#117;&#x62;&#x2e;&#99;&#111;&#x6d;</a>:Chtholly2333&#x2F;Chtholly2333.github.io.git<br> branch: master</li>
+</ol>
+<ul>
+<li>注意：其中repository中的内容为github个人主页链接地址<br><img src="/2022/08/04/hexo-da-jian-bo-ke/git%E4%B8%BB%E9%A1%B5%E5%9C%B0%E5%9D%80-16596187286833.png"></li>
+</ul>
+<ol start="3">
+<li>在D:\hexo目录下，输入命令：<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+将本地的blog推送到github仓库，可能需要输入username和pwd，完成后即可在浏览器中访问https:&#x2F;&#x2F;你的github用户名.github.io&#x2F;</li>
+</ol>
+<h2 id="5-美化博客"><a href="#5-美化博客" class="headerlink" title="5.美化博客"></a>5.美化博客</h2>
                 
             </div>
             <hr/>
@@ -471,7 +575,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/hexo/">
+                                    <span class="chip bg-color">-hexo</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -677,6 +785,14 @@
                 </div>
 
                 
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/hexo/">
+                        <span class="chip bg-color">-hexo</span>
+                    </a>
+                    
+                </div>
+                
             </div>
         </div>
         
@@ -686,13 +802,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/08/04/hexo/">
+                <a href="/2022/08/03/hello-world/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="hexo">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
                         
-                        <span class="card-title">hexo</span>
+                        <span class="card-title">Hello World</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -703,7 +819,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-04
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-03
                             </span>
                         <span class="publish-author">
                             
