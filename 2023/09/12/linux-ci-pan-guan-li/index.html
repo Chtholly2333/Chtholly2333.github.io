@@ -4,17 +4,16 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="hexo,blog">
-    <meta name="description" content="1前期准备1.1下载并安装node
-官网下载：https://nodejs.org/en/
+    <meta name="keywords" content="linux磁盘管理, Chtholly">
+    <meta name="description" content="磁盘管理lsblk		fdisk -l查看机器上有多少个磁盘
+df -T	查看文件系统  磁盘类型等
+df -h	挂载情况和磁盘使用率
 
-安装后验证：node -v
+free -h 内存使用情况
 
 
-1.2下载并安装git
-官网下载：https://git-scm.com/download/win
-
-安装后验证：">
+物理磁盘到使用
+	1.分区	2.格式化	ext4 xfs ext3	">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -28,7 +27,7 @@
 
     
 
-    <title>hexo搭建博客 | Chtholly</title>
+    <title>linux磁盘管理 | Chtholly</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -255,12 +254,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">hexo搭建博客</h1>
+                    <h1 class="description center-align post-title">linux磁盘管理</h1>
                 </div>
             </div>
         </div>
@@ -374,13 +373,9 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/hexo/">
-                                <span class="chip bg-color">hexo</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -392,7 +387,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-08-04
+                    2023-09-12
                 </div>
                 
 
@@ -401,7 +396,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    901
+                    507
                 </div>
                 
 
@@ -421,98 +416,62 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="1前期准备"><a href="#1前期准备" class="headerlink" title="1前期准备"></a>1前期准备</h2><h3 id="1-1下载并安装node"><a href="#1-1下载并安装node" class="headerlink" title="1.1下载并安装node"></a>1.1下载并安装node</h3><ul>
-<li><p>官网下载：<a target="_blank" rel="noopener" href="https://nodejs.org/en/">https://nodejs.org/en/</a></p>
-</li>
-<li><p>安装后验证：node -v</p>
-</li>
-</ul>
-<h3 id="1-2下载并安装git"><a href="#1-2下载并安装git" class="headerlink" title="1.2下载并安装git"></a>1.2下载并安装git</h3><ul>
-<li><p>官网下载：<a target="_blank" rel="noopener" href="https://git-scm.com/download/win">https://git-scm.com/download/win</a></p>
-</li>
-<li><p>安装后验证：git -v</p>
-</li>
-</ul>
-<h3 id="1-3命令行安装cnpm"><a href="#1-3命令行安装cnpm" class="headerlink" title="1.3命令行安装cnpm"></a>1.3命令行安装cnpm</h3><ul>
-<li>命令：<strong>npm install -g cnpm –registry&#x3D;&#x3D;<a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a></strong></li>
-<li>安装后验证：cnpm -v</li>
-</ul>
-<h3 id="1-4命令行安装hexo"><a href="#1-4命令行安装hexo" class="headerlink" title="1.4命令行安装hexo"></a>1.4命令行安装hexo</h3><ul>
-<li><p>命令：cnpm install -g hexo-cli</p>
-</li>
-<li><p>安装后验证：hexo -v</p>
-</li>
-</ul>
-<h2 id="2配置github"><a href="#2配置github" class="headerlink" title="2配置github"></a>2配置github</h2><h3 id="2-1在github上创建仓库"><a href="#2-1在github上创建仓库" class="headerlink" title="2.1在github上创建仓库"></a>2.1在github上创建仓库</h3><p>创建：</p>
-<ul>
-<li>新建一个名为你的用户名.github.io的仓库</li>
-<li>比如说，你的github用户名为chtholly，那么就新建chtholly.github.io的仓库，将来你的网站访问地址就是 <a target="_blank" rel="noopener" href="http://chtholly.github.io/">http://chtholly.github.io</a> ，因此，一个github账户最多创建一个这样直接使用域名访问的仓库。</li>
-</ul>
-<p>注意：</p>
-<ul>
-<li>注册的邮箱一定要验证，否则不会成功</li>
-</ul>
-<p><img src="/2022/08/04/hexo-da-jian-bo-ke/%E5%88%9B%E5%BB%BAgithub%E4%BB%93%E5%BA%93-16596186964872.png"></p>
-<h2 id="3配置SSH免密登录"><a href="#3配置SSH免密登录" class="headerlink" title="3配置SSH免密登录"></a>3配置SSH免密登录</h2><p>提交代码需要拥有你的github权限，直接使用用户名和密码不太安全，使用ssh key解决本地和服务器的连接问题。</p>
-<ol>
-<li><p>首先打开电脑文件夹，找到C:\Users\你的用户名.ssh文件夹并删除</p>
-</li>
-<li><p>在C:\Users\你的用户名 文件夹下右键打开Git Bash Here，输入</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ssh-keygen -t rsa -C github邮箱地址<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>输入后一直回车确认即可</p>
-</li>
-<li><p>最后会生成一个新的文件夹.ssh文件夹，打开这个文件夹，找到id_rsa.pub文件，记事本打开并复制里面的内容</p>
-</li>
-<li><p>打开你的github主页，进入个人设置-&gt;SSH and GPG keys-&gt;New SSH key，把复制的内容粘贴进去，title能够用于区分即可。</p>
-</li>
-</ol>
-<p><img src="/2022/08/04/hexo-da-jian-bo-ke/SSH_key-16596186837501.png"></p>
-<ol start="5">
-<li>检测是否设置成功：<br>输入<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">ssh</span> -T git@github.com <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-如果提示Are you sure you want to continue connecting (yes&#x2F;no)?，输入yes，然后会看到：</li>
-</ol>
-<p>Hi chtholly2333! You’ve successfully authenticated, but GitHub does not provide shell access.</p>
-<p>看到这个信息说明SSH已配置成功</p>
-<ol start="6">
-<li>最后还需配置：<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">git</span> config –global user.name <span class="token string">"XXX"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-引号内为你的github用户名<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">git</span> config –global user.email <span class="token string">"xxx@xx.com"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-引号内为github注册的邮箱</li>
-</ol>
-<h2 id="4使用hexo搭建博客"><a href="#4使用hexo搭建博客" class="headerlink" title="4使用hexo搭建博客"></a>4使用hexo搭建博客</h2><h3 id="4-1初始化"><a href="#4-1初始化" class="headerlink" title="4.1初始化"></a>4.1初始化</h3><ol>
-<li><p>在电脑的某个地方新建一个文件夹作为存放代码的地方，例如D:\hexo（名字位置均可随意，能够记住即可）</p>
-</li>
-<li><p>在该文件夹内右键打开Git Bash Here，输入</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo init<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-</ol>
-<ul>
-<li>hexo会自动下载一些文件到该目录</li>
-</ul>
-<ol start="3">
-<li><p>执行以下命令，hexo会在public文件夹生成相关html文件，这些文件将来都是要提交到github上去的</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo g <span class="token comment">#生成</span>
-$ hexo s <span class="token comment">#启动，本地预览</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-</li>
-<li><p>hexo s是开启本地预览服务，打开浏览器访问 <a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000</a> 即可看到内容，如果不能成功打开，可能是因为4000端口被占用，可以在命令窗口中通过 netstat -aon | find &#x2F;i “listening” 来监听端口，使用    taskkill &#x2F;PID  对应的PID      来结束对应进程</p>
-</li>
-</ol>
-<h3 id="4-2将博客部署到github个人主页上"><a href="#4-2将博客部署到github个人主页上" class="headerlink" title="4.2将博客部署到github个人主页上"></a>4.2将博客部署到github个人主页上</h3><ol>
-<li>在D:\hexo(你创建的目录)目录下安装hexo-deployer-git插件</li>
-</ol>
-<ul>
-<li>安装命令：npm install hexo-deployer-git –save</li>
-<li>注意：必须安装，否则执行hexo d会报错</li>
-</ul>
-<ol start="2">
-<li>编辑D:\hexo目录下的_config.yml文件，在文末添加：<br> type: git<br> repository: <a href="mailto:&#x67;&#x69;&#x74;&#64;&#103;&#105;&#x74;&#x68;&#x75;&#98;&#46;&#x63;&#111;&#109;">&#x67;&#x69;&#x74;&#64;&#103;&#105;&#x74;&#x68;&#x75;&#98;&#46;&#x63;&#111;&#109;</a>:Chtholly2333&#x2F;Chtholly2333.github.io.git<br> branch: master</li>
-</ol>
-<ul>
-<li>注意：其中repository中的内容为github个人主页链接地址<br><img src="/2022/08/04/hexo-da-jian-bo-ke/git%E4%B8%BB%E9%A1%B5%E5%9C%B0%E5%9D%80-16596187286833.png"></li>
-</ul>
-<ol start="3">
-<li>在D:\hexo目录下，输入命令：<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-将本地的blog推送到github仓库，可能需要输入username和pwd，完成后即可在浏览器中访问https:&#x2F;&#x2F;你的github用户名.github.io&#x2F;</li>
-</ol>
-<h2 id="5-美化博客"><a href="#5-美化博客" class="headerlink" title="5.美化博客"></a>5.美化博客</h2>
+                <h3 id="磁盘管理"><a href="#磁盘管理" class="headerlink" title="磁盘管理"></a>磁盘管理</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">lsblk		<span class="token function">fdisk</span> -l查看机器上有多少个磁盘
+<span class="token function">df</span> -T	查看文件系统  磁盘类型等
+<span class="token function">df</span> -h	挂载情况和磁盘使用率
+
+<span class="token function">free</span> -h 内存使用情况
+
+
+物理磁盘到使用
+	<span class="token number">1</span>.分区	<span class="token number">2</span>.格式化	ext4 xfs ext3	<span class="token number">3</span>.挂载
+	
+分区 <span class="token function">fdisk</span> /dev/磁盘名
+n分区
+w保存
+
+格式化 mkfs.ext4 /dev/磁盘名			  mkfs.xfs 磁盘名   格式化为xfs格式   如果已经有其他格式  用 -f 选项强行格式化
+
+挂载 <span class="token function">mount</span> 磁盘路径 挂载点路径 	挂载点最好是空目录 
+	存储在挂载点下面的文件占用对应磁盘空间
+卸载磁盘 <span class="token function">umount</span>	磁盘设备        <span class="token function">umount</span> 挂载点
+卸载文件不会消失	再次挂载还能看到文件
+重启之后会自动卸载挂载的盘
+
+
+做开机自动挂载
+blkid	查看磁盘UUID
+修改 /etc/fstab
+增加内容：
+	<span class="token assign-left variable">UUID</span><span class="token operator">=</span>dc855d86-7297-4c81-950a-735322d55c67	/vdb1	 ext4	defaults	<span class="token number">0</span>	<span class="token number">0</span>
+	要挂载的分区设备号	挂载点	文件系统类型	挂载选项	是否备份	是否检测
+<span class="token function">mount</span> -a	将/etc/fstab定义的所有档案系统挂上
+重启<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="/2023/09/12/linux-ci-pan-guan-li/image-20250601125728394-17555972461941.png"></p>
+<h3 id="逻辑卷"><a href="#逻辑卷" class="headerlink" title="逻辑卷"></a>逻辑卷</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">vgs		查看卷组基本信息	pvs		查看物理卷基本信息
+创建卷组	vgcreate 卷组名 空闲分区
+创建逻辑卷	lvcreate -L 大小 -n 名称 卷组名
+
+vgdisplay 卷组名	可以查看详细信息
+vgchange -s 1M 卷组名		修改最小PE值   默认1PE<span class="token operator">=</span>4M
+lvcreate -l <span class="token number">678</span> -n 逻辑卷名	卷组		新建一个大小678个PE的逻辑卷   -l指定PE个数<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>如何磁盘扩容</p>
+<p>（1）卷组有足够剩余空间</p>
+<p>​	1.扩展逻辑卷</p>
+<p>​		lvextend -L 18G	逻辑卷地址			增加到18g</p>
+<p>​		lvextend -L +2G	逻辑卷地址			增加2G</p>
+<p>​	2.扩展文件系统大小（刷新文件系统）</p>
+<p>​		resize2fs	逻辑卷地址				扩展ext4文件系统</p>
+<p>​		xfs_growfs	逻辑卷地址				扩展xfs文件系统</p>
+<p>（2）卷组没有足够剩余空间</p>
+<p>​	1.扩展卷组空间</p>
+<p>​		vgextend	卷组名	磁盘路径</p>
+<p>​	2.3.同上</p>
+
                 
             </div>
             <hr/>
@@ -538,7 +497,7 @@ $ hexo s <span class="token comment">#启动，本地预览</span><span aria-hid
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://Chtholly2333.github.io/2022/08/04/hexo-da-jian-bo-ke/">http://Chtholly2333.github.io/2022/08/04/hexo-da-jian-bo-ke/</a>
+                    <a href="http://Chtholly2333.github.io/2023/09/12/linux-ci-pan-guan-li/">http://Chtholly2333.github.io/2023/09/12/linux-ci-pan-guan-li/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -575,11 +534,7 @@ $ hexo s <span class="token comment">#启动，本地预览</span><span aria-hid
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/hexo/">
-                                    <span class="chip bg-color">hexo</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -755,13 +710,13 @@ $ hexo s <span class="token comment">#启动，本地预览</span><span aria-hid
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/08/05/lei-yu-dui-xiang/">
+                <a href="/2023/11/19/zi-jian-yum-yuan/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="类与对象">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="自建yum源">
                         
-                        <span class="card-title">类与对象</span>
+                        <span class="card-title">自建yum源</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -772,7 +727,7 @@ $ hexo s <span class="token comment">#启动，本地预览</span><span aria-hid
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-05
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-11-19
                         </span>
                         <span class="publish-author">
                             
@@ -781,14 +736,6 @@ $ hexo s <span class="token comment">#启动，本地预览</span><span aria-hid
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/java/">
-                        <span class="chip bg-color">java</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -800,13 +747,13 @@ $ hexo s <span class="token comment">#启动，本地预览</span><span aria-hid
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/08/04/ai-li-xi-ya/">
+                <a href="/2022/08/25/kmp-suan-fa/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="《爱莉希雅》">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="KMP算法">
                         
-                        <span class="card-title">《爱莉希雅》</span>
+                        <span class="card-title">KMP算法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -817,7 +764,7 @@ $ hexo s <span class="token comment">#启动，本地预览</span><span aria-hid
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-04
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-25
                             </span>
                         <span class="publish-author">
                             
